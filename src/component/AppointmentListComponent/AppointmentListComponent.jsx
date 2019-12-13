@@ -8,9 +8,9 @@ import AppointmentListComponentHeader from './AppointmentListComponentHeader';
 import AppointmentListDateFilter from './AppointmentListDateFilter';
 
 
-function AppointmentListComponent() {
+function AppointmentListComponent({ className }) {
   return (
-    <div className="plushcare-widget">
+    <div className={`plushcare-widget ${className}`}>
       <AppointmentListComponentHeader />
       <AppointmentListDateFilter />
     </div>
