@@ -5,18 +5,18 @@ const HEADERS = {
 
 }
 
-const fetchAppointments = async (state, count=3) => (
-    await axios.get(url, headers=HEADERS, data=json.sy{})
+export const fetchAppointments = async (appData) => (
+    await axios.get(`${API_URL}`, {'headers': HEADERS}, JSON.stringify(appData))
 );
 
-const createUser = async () => (
-    await axios.post()
+export const createUser = async (userData) => (
+    await axios.post(`${API_URL}`, {'headers': HEADERS}, JSON.stringify(userData))
 );
 
-const submitPayment = async () => (
-    await axios.post()
+export const submitPayment = async (paymentData) => (
+    await axios.post(`${API_URL}`, {'headers': HEADERS}, JSON.stringify(paymentData))
 );
 
-const submitInsurance = async () => (
-    await axios.post()
+export const submitInsurance = async (insuranceData) => (
+    await axios.post(`${API_URL}`, {'headers': HEADERS}, JSON.stringify(insuranceData))
 );

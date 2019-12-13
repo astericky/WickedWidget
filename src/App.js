@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import AppointmentListComponent from './component/AppointmentListComponent/AppointmentListComponent';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <AppointmentListComponent />
     </div>
   );
 }
