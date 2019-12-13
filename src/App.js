@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+
 import AppointmentListComponent from './component/AppointmentListComponent/AppointmentListComponent';
 import Registration from './component/Registration';
 import Payment from './component/Payment';
