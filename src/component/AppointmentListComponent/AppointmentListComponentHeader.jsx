@@ -7,7 +7,7 @@ import PlushCareLogo from '../../logo.png';
 
 function AppointmentListComponentHeader({ className }) {
   return (
-    <header className={className}>
+    <header className={`plushcare-widget-header ${className}`}>
       <h1>
         <a href="https://plushcare.com/book">
           <img src={PlushCareLogo} alt="PlushCare Logo" />

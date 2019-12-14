@@ -11,14 +11,19 @@ import Completion from './component/Completion';
 import {fetchAppointments} from './helpers'
 
 function App() {
-  const [display, setDisplay] = useState('registration');
+  const [display, setDisplay] = useState('appointments');
   const [appointments, setAppointments] = useState([]);
   const [doctors, setDoctors] = useState([]);
 
   const getApps = async (appData) => {
-    const {appointments, doctors} = await fetchAppointments(appData);
-    setAppointments(appointments);
+    const {
+      data: {
+        appointments,
+        doctors,
+      }
+    } = await fetchAppointments(appData);
     setDoctors(doctors);
+    setAppointments(appointments);
   }
 
   useEffect(() => {
@@ -43,7 +48,7 @@ function App() {
       case 'completion':
         return <Completion />
       default:
-        return <AppointmentListComponent />
+        return <AppointmentListComponent doctors={doctors} appointments={appointments} />
     }
   }
 
