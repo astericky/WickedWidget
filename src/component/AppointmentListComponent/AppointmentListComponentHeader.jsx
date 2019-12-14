@@ -19,13 +19,24 @@ function AppointmentListComponentHeader({ className }) {
 }
 
 const styledAppointmentListComponentHeader = styled(AppointmentListComponentHeader)`
+  box-sizing: border-box;
+  width: 100%;
+  padding: 6px;
   background: #283779;
 
   h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0;
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 400;
   }
 
   a {
+    display: flex;
+    align-items: center;
     color: #fff;
     text-decoration: none;
   }
@@ -33,7 +44,7 @@ const styledAppointmentListComponentHeader = styled(AppointmentListComponentHead
   img {
     width: 30px;
     height: 30px;
-    margin-right: 8px;
+    margin-right: 4px;
   }
 `;
 
