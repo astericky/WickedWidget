@@ -11,9 +11,11 @@ import Completion from './component/Completion';
 import {fetchAppointments} from './helpers'
 
 function App() {
+  let today = moment();
   const [display, setDisplay] = useState('appointments');
   const [appointments, setAppointments] = useState([]);
   const [doctors, setDoctors] = useState([]);
+  const [date, setDate] = useState(today);
 
   const getApps = async (appData) => {
     const {
@@ -29,7 +31,7 @@ function App() {
   useEffect(() => {
     getApps({
         state: 'CA',
-        start_time: moment().toISOString(true),
+        start_time: moment(date).toISOString(true),
         doctor_type: 'internal',
         pagination_size: 3,
         paginate_cursor_appt: ''
@@ -40,7 +42,12 @@ function App() {
   const renderSwitch = (display) => {
     switch (display) {
       case 'appointments':
-        return <AppointmentListComponent doctors={doctors} appointments={appointments} setDisplay={setDisplay}/>
+        return <AppointmentListComponent
+          doctors={doctors}
+          appointments={appointments}
+          appointmentDate={moment(date).format('YYYY-MM-DD')}
+          setAppointmentDate={setDate}
+        />
       case 'registration':
         return <Registration setDisplay={setDisplay}/>
       case 'payment':

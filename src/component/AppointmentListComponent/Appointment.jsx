@@ -14,7 +14,6 @@ function Appointment({
   index,
   className,
 }) {
-  console.log(doctor);
   const {
     first_name: firstName = '',
     last_name: lastName = '',
@@ -22,7 +21,7 @@ function Appointment({
     rating = 5.0,
   } = doctor;
   return (
-    <div className={`appointment ${className}`}>
+    <li className={`appointment ${className}`}>
       <figure className="doctor">
         <div className="doctor-img">
             <img
@@ -45,7 +44,7 @@ function Appointment({
           </figcaption>
       </figure>
       <Button>Book</Button>
-    </div>
+    </li>
   );
 }
 
@@ -59,6 +58,8 @@ const styledAppointment = styled(Appointment)`
     display: flex;
     padding: 0;
     margin: 0;
+    font-size: 14px;
+    text-align: left;
   }
 
   img {
@@ -66,6 +67,17 @@ const styledAppointment = styled(Appointment)`
     height: 40px;
   }
 
+  .doctor-caption {
+    margin-left: 8px;
+  }
+
+  .doctor-name {
+    font-weight: bold;
+  }
+
+  .appointment-time {
+    font-size: 12px;
+  }
 `;
 
 const Button = styled.button`
@@ -73,7 +85,8 @@ const Button = styled.button`
   margin-left: auto;
   border: 0;
   border-radius: 4px;
-  background: #0084ff;
+  background: #bf3fa9;
   color: #fff;
+  text-transform: uppercase;
 `;
 export default styledAppointment
