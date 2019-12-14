@@ -46,6 +46,7 @@ function AppointmentList({
 }
 
 const styledAppointmentList = styled(AppointmentList)`
+  list-style: none;
   align-self: center;
   width: 100%;
   padding: 0;
