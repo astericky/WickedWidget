@@ -35,7 +35,9 @@ function AppointmentList({
   
   if (appointmentElements.length === 0) {
     return (
-      <div className={`appointment-list ${className}`}>Loading...</div>
+      <div className={`appointment-list ${className}`}>
+        <p className="appointment-list-loading">Loading...</p>
+      </div>
     );
   }
   return (
@@ -51,7 +53,15 @@ const styledAppointmentList = styled(AppointmentList)`
   width: 100%;
   padding: 0;
   margin: 0;
-
+  
+  .appointment-list-loading {
+    padding: 4px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+  }
   .appointment:first-child {
     border-top: 1px solid #e4eaf0;
   }

@@ -53,6 +53,7 @@ const styledAppointment = styled(Appointment)`
   align-items: center;
   padding: 8px;
   border-bottom: 1px solid #e4eaf0;
+  line-height: 1.17;
 
   .doctor {
     display: flex;
@@ -85,7 +86,9 @@ const Button = styled.button`
   margin-left: auto;
   border: 0;
   border-radius: 4px;
-  background: #bf3fa9;
+  background: #FFB74C;
+  font-size: 12px;
+  line-height: 1;
   color: #fff;
   text-transform: uppercase;
 `;

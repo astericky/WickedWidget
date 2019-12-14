@@ -19,8 +19,12 @@ function AppointmentListDateFilter({
           id="date" 
           name="date" 
           placeholder={appointmentDate}
+          onBlur={() => {
+
+          }}
           onChange={({ target: { value }}) => {
-            setAppointmentDate(value);
+            let newDate = moment(value).toISOString(true);
+            setAppointmentDate(newDate);
           }}
           value={appointmentDate}
         />
@@ -36,6 +40,11 @@ const styledAppointmentListDateFilter = styled(AppointmentListDateFilter)`
   background: #e9eef2;
   font-size: 12px;
   text-transform: uppercase;
+  text-align: center;
+
+  label {
+    margin: 0;
+  }
 
   input[type=date] {
     border: 0;
