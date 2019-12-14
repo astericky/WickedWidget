@@ -13,9 +13,14 @@ function App() {
   const [doctors, setDoctors] = useState([]);
 
   const getApps = async (appData) => {
-    const {appointments, doctors} = await fetchAppointments(appData);
-    setAppointments(appointments);
+    const {
+      data: {
+        appointments,
+        doctors,
+      }
+    } = await fetchAppointments(appData);
     setDoctors(doctors);
+    setAppointments(appointments);
   }
 
   useEffect(() => {
@@ -31,7 +36,7 @@ function App() {
   const renderSwitch = (display) => {
     switch (display) {
       case 'appointments':
-        return <AppointmentListComponent doctors={doctors} appointments={appointments}/>
+        return <AppointmentListComponent doctors={doctors} appointments={appointments} />
       case 'registration':
         return <Registration />
       case 'payment':
@@ -39,7 +44,7 @@ function App() {
       case 'completion':
         return <Completion />
       default:
-        return <AppointmentListComponent />
+        return <AppointmentListComponent doctors={doctors} appointments={appointments} />
     }
   }
 

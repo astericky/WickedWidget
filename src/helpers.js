@@ -1,10 +1,11 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:2323/'
+// const API_URL = 'http://localhost:2323/'
+const API_URL = 'https://api-dev.plushcare.com/'
 // 'https://api-dev.plushcare.com/';
 //  Hp1Wm4nFzh38aVA4Dr9C32siFeXRXw
 const HEADERS = {
-    'Authorization': 'Bearer yNQl98mzHkKdlt7Xl9pRCMStdFx4UF'
+    'Authorization': 'Bearer Hp1Wm4nFzh38aVA4Dr9C32siFeXRXw'
 }
 
 export const fetchAppointments = (appData) => (
