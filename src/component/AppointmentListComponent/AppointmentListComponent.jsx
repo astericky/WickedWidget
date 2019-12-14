@@ -9,12 +9,20 @@ import AppointmentListDateFilter from './AppointmentListDateFilter';
 import AppointmentList from './AppointmentList';
 
 
-function AppointmentListComponent({ className, appointments, doctors }) {
-  console.log('AppointmentListComponent :: doctors', doctors)
+function AppointmentListComponent({ 
+  className, 
+  appointments, 
+  doctors,
+  appointmentDate,
+  setAppointmentDate,
+}) {
   return (
     <div className={`plushcare-widget ${className}`}>
       <AppointmentListComponentHeader />
-      <AppointmentListDateFilter />
+      <AppointmentListDateFilter
+        appointmentDate={appointmentDate}
+        setAppointmentDate={setAppointmentDate}
+      />
       <AppointmentList doctors={doctors} appointments={appointments} />
     </div>
   );

@@ -14,7 +14,6 @@ function Appointment({
   index,
   className,
 }) {
-  console.log(doctor);
   const {
     first_name: firstName = '',
     last_name: lastName = '',

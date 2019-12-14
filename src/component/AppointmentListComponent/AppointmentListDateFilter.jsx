@@ -1,13 +1,15 @@
 // this comment tells babel to convert jsx to calls to a function called jsx instead of React.createElement
 /** @jsx jsx */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import moment from 'moment-timezone';
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 
-function AppointmentListDateFilter({ className }) {
-  let today = moment().format('YYYY-MM-DD');
-  const [date, setDate] = useState(today);
+function AppointmentListDateFilter({ 
+  className,
+  appointmentDate,
+  setAppointmentDate,
+}) {
   return (
     <div className={`date-filter ${className}`}>
       <label htmlFor="date">
@@ -16,11 +18,11 @@ function AppointmentListDateFilter({ className }) {
           type="date" 
           id="date" 
           name="date" 
-          placeholder={date}
+          placeholder={appointmentDate}
           onChange={({ target: { value }}) => {
-            setDate(value);
+            setAppointmentDate(value);
           }}
-          value={date}
+          value={appointmentDate}
         />
       </label>
     </div>
