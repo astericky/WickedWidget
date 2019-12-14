@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
+import { StripeProvider, injectStripe, Elements } from 'react-stripe-elements';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import AppointmentListComponent from './component/AppointmentListComponent/AppointmentListComponent';
 import Registration from './component/Registration';
@@ -8,7 +11,7 @@ import Completion from './component/Completion';
 import {fetchAppointments} from './helpers'
 
 function App() {
-  const [display, setDisplay] = useState('appointments');
+  const [display, setDisplay] = useState('registration');
   const [appointments, setAppointments] = useState([]);
   const [doctors, setDoctors] = useState([]);
 
@@ -28,14 +31,15 @@ function App() {
     })
 
   }, [])
+
   const renderSwitch = (display) => {
     switch (display) {
       case 'appointments':
-        return <AppointmentListComponent doctors={doctors} appointments={appointments}/>
+        return <AppointmentListComponent doctors={doctors} appointments={appointments} setDisplay={setDisplay}/>
       case 'registration':
-        return <Registration />
+        return <Registration setDisplay={setDisplay}/>
       case 'payment':
-        return <Payment />
+        return <Payment setDisplay={setDisplay}/>
       case 'completion':
         return <Completion />
       default:
@@ -45,7 +49,13 @@ function App() {
 
   return (
     <div className="App">
-      {renderSwitch(display)}
+      <StripeProvider apiKey="pk_test_12345">
+        <Elements>
+          <>
+            {renderSwitch(display)}
+          </>
+        </Elements>
+      </StripeProvider>
     </div>
   );
 }
