@@ -23,6 +23,7 @@ function AppointmentListComponent({ className, appointments, doctors }) {
 const styledAppointmentListComponent = styled(AppointmentListComponent)`
   width: 300px;
   height: 250px;
+  border: 1px solid #e4eaf0;
   overflow-y: scroll;
   color: #333;
 `

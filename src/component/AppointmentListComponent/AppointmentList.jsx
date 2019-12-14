@@ -46,6 +46,12 @@ function AppointmentList({
 }
 
 const styledAppointmentList = styled(AppointmentList)`
+  padding: 0;
+  margin: 0;
+
+  .appointment:last-child {
+    border-bottom: 0;
+  }
 `;
 
 

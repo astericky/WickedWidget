@@ -44,12 +44,14 @@ function Appointment({
             </div>
           </figcaption>
       </figure>
+      <Button>Book</Button>
     </div>
   );
 }
 
 const styledAppointment = styled(Appointment)`
   display: flex;
+  align-items: center;
   padding: 8px;
   border-bottom: 1px solid #e4eaf0;
 
@@ -64,5 +66,14 @@ const styledAppointment = styled(Appointment)`
     height: 40px;
   }
 
+`;
+
+const Button = styled.button`
+  padding: 8px;
+  margin-left: auto;
+  border: 0;
+  border-radius: 4px;
+  background: #0084ff;
+  color: #fff;
 `;
 export default styledAppointment
