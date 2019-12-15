@@ -37,7 +37,7 @@ function App() {
         paginate_cursor_appt: ''
     })
 
-  }, [])
+  }, [date]);
 
   const renderSwitch = (display) => {
     switch (display) {
