@@ -14,6 +14,7 @@ function AppointmentList({
   appointments = [], 
   doctors = [],
   className,
+  appointmentsLoaded,
 }) {
   const timeZone = jstz.determine().name();
   const appointmentElements = appointments.map(({
@@ -33,10 +34,20 @@ function AppointmentList({
     />
   ));
   
-  if (appointmentElements.length === 0) {
+  if (appointmentElements.length === 0
+      && !appointmentsLoaded) {
     return (
       <div className={`appointment-list ${className}`}>
         <p className="appointment-list-loading">Loading...</p>
+      </div>
+    );
+  }
+
+  if (appointmentElements.length === 0
+      && appointmentsLoaded) {
+    return (
+      <div className={`appointment-list ${className}`}>
+        <p className="appointment-list-loading">No Appointments</p>
       </div>
     );
   }

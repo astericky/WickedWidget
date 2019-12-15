@@ -16,6 +16,7 @@ function App() {
   const [appointments, setAppointments] = useState([]);
   const [doctors, setDoctors] = useState([]);
   const [date, setDate] = useState(today);
+  const [appointmentsLoaded, setAppointmentsLoaded] = useState(false);
 
   const getApps = async (appData) => {
     const {
@@ -26,6 +27,7 @@ function App() {
     } = await fetchAppointments(appData);
     setDoctors(doctors);
     setAppointments(appointments);
+    setAppointmentsLoaded(true);
   }
 
   useEffect(() => {
@@ -35,8 +37,7 @@ function App() {
         doctor_type: 'internal',
         pagination_size: 3,
         paginate_cursor_appt: ''
-    })
-
+    });
   }, [date]);
 
   const renderSwitch = (display) => {
@@ -47,6 +48,7 @@ function App() {
           appointments={appointments}
           appointmentDate={moment(date).format('YYYY-MM-DD')}
           setAppointmentDate={setDate}
+          appointmentsLoaded={appointmentsLoaded}
         />
       case 'registration':
         return <Registration setDisplay={setDisplay}/>

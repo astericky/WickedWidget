@@ -15,6 +15,7 @@ function AppointmentListComponent({
   doctors,
   appointmentDate,
   setAppointmentDate,
+  appointmentsLoaded,
 }) {
   return (
     <div className={`plushcare-widget ${className}`}>
@@ -23,7 +24,11 @@ function AppointmentListComponent({
         appointmentDate={appointmentDate}
         setAppointmentDate={setAppointmentDate}
       />
-      <AppointmentList doctors={doctors} appointments={appointments} />
+      <AppointmentList
+        doctors={doctors}
+        appointments={appointments}
+        appointmentsLoaded={appointmentsLoaded}
+      />
     </div>
   );
 }
