@@ -13,6 +13,8 @@ function Appointment({
   doctor,
   index,
   className,
+  setDisplay,
+  setSelectedAppointmentId,
 }) {
   const {
     first_name: firstName = '',
@@ -43,7 +45,12 @@ function Appointment({
             </div>
           </figcaption>
       </figure>
-      <Button>Book</Button>
+      <Button
+        onClick={() => {
+          setSelectedAppointmentId(id);
+          setDisplay('registration');
+        }}
+      >Book</Button>
     </li>
   );
 }

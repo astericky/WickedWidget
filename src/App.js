@@ -17,6 +17,7 @@ function App() {
   const [doctors, setDoctors] = useState([]);
   const [date, setDate] = useState(today);
   const [appointmentsLoaded, setAppointmentsLoaded] = useState(false);
+  const [selectedAppointmentId, setSelectedAppointmentId] = useState('');
 
   const getApps = async (appData) => {
     const {
@@ -47,11 +48,13 @@ function App() {
           doctors={doctors}
           appointments={appointments}
           appointmentDate={moment(date).format('YYYY-MM-DD')}
-          setAppointmentDate={setDate}
           appointmentsLoaded={appointmentsLoaded}
+          setAppointmentDate={setDate}
+          setDisplay={setDisplay}
+          setSelectedAppointmentId={setSelectedAppointmentId}
         />
       case 'registration':
-        return <Registration setDisplay={setDisplay}/>
+        return <Registration setDisplay={setDisplay} />
       case 'payment':
         return <Payment setDisplay={setDisplay}/>
       case 'completion':

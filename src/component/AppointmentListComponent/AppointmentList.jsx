@@ -15,6 +15,8 @@ function AppointmentList({
   doctors = [],
   className,
   appointmentsLoaded,
+  setDisplay,
+  setSelectedAppointmentId,
 }) {
   const timeZone = jstz.determine().name();
   const appointmentElements = appointments.map(({
@@ -31,6 +33,8 @@ function AppointmentList({
       }) => doctorId === currentDoctorId)[0]}
       time={moment(appointmentUTCTime).tz(timeZone)}
       formattedTime={moment(appointmentUTCTime).tz(timeZone).format('h:mm A z')}
+      setDisplay={setDisplay}
+      setSelectedAppointmentId={setSelectedAppointmentId}
     />
   ));
   
