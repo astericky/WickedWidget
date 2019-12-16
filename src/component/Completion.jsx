@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {Button, Row, Col} from 'reactstrap';
 
 import AppointmentListComponentHeader from './AppointmentListComponent/AppointmentListComponentHeader';
