@@ -1,7 +1,13 @@
+// this comment tells babel to convert jsx to calls to a function called jsx instead of React.createElement
+/** @jsx jsx */
 import React, { useState } from 'react';
 import { Form, Label, Input, Row, Col } from 'reactstrap';
+import { jsx } from '@emotion/core';
+import styled from '@emotion/styled';
 
-export default function Registration(props) {
+import AppointmentListComponentHeader from './AppointmentListComponent/AppointmentListComponentHeader';
+
+function Registration(props) {
     const [input, setInput] = useState({});
     const handleInputChange = (e) => setInput({
         ...input,
@@ -15,7 +21,8 @@ export default function Registration(props) {
     }
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} className={props.className}>
+            <AppointmentListComponentHeader />
             <Row>
                 <Col xs={2}>
                     <Label bsSize="sm"  for="name">Name</Label>
@@ -57,5 +64,14 @@ export default function Registration(props) {
             </Row>
             <Input bsSize="sm" type="submit"/>
         </Form>
-    )
+    );
 }
+
+const styledRegistration = styled(Registration)`
+    .row {
+        padding: 4px;
+        margin: 0;
+    }
+`;
+
+export default styledRegistration;
