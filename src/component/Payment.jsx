@@ -1,5 +1,7 @@
+// this comment tells babel to convert jsx to calls to a function called jsx instead of React.createElement
+/** @jsx jsx */
 import React, { useState } from 'react';
-import { injectStripe, CardElement } from 'react-stripe-elements';
+import { StripeProvider, injectStripe, Elements, CardElement } from 'react-stripe-elements';
 import {Form, Input} from 'reactstrap';
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -16,11 +18,17 @@ function Payment(props) {
     }
 
     return (
-        <Form onSubmit={submitHandler} className={props.className}>
-            <AppointmentListComponentHeader />
-            <CardElement onChange={onCardChange} className="card-element" />
-            <Input type="Submit" />
-        </Form>
+        <StripeProvider apiKey="pk_test_12345">
+            <Elements>
+            <>
+                <Form onSubmit={submitHandler} className={props.className}>
+                    <AppointmentListComponentHeader />
+                    <CardElement onChange={onCardChange} className="card-element" />
+                    <Input type="Submit" />
+                </Form>
+            </>
+        </Elements>
+      </StripeProvider>
     );
 }
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
-import { StripeProvider, injectStripe, Elements } from 'react-stripe-elements';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -66,13 +65,7 @@ function App() {
 
   return (
     <div className="App">
-      <StripeProvider apiKey="pk_test_12345">
-        <Elements>
-          <>
-            {renderSwitch(display)}
-          </>
-        </Elements>
-      </StripeProvider>
+      {renderSwitch(display)}
     </div>
   );
 }
