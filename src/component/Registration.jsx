@@ -21,8 +21,9 @@ function Registration(props) {
     }
 
     return (
+        <>
+        <AppointmentListComponentHeader />
         <Form onSubmit={handleSubmit} className={props.className}>
-            <AppointmentListComponentHeader />
             <Row>
                 <Col xs={2}>
                     <Label bsSize="sm"  for="name">Name</Label>
@@ -64,13 +65,22 @@ function Registration(props) {
             </Row>
             <Input bsSize="sm" type="submit"/>
         </Form>
+        </>
     );
 }
 
 const styledRegistration = styled(Registration)`
+    height: 100%;
+    padding: 8px;
+
     .row {
         padding: 4px;
         margin: 0;
+    }
+
+    input[type=submit] {
+        width: 245px;
+        margin: 0 auto;
     }
 `;
 

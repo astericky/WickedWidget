@@ -18,12 +18,12 @@ function Payment(props) {
     }
 
     return (
-        <div>
+        <div className={props.className}>
             <AppointmentListComponentHeader />
-            <p className="payment-info">
-                Your appointment is $99 or your copay.
-            </p>
-            <Form onSubmit={submitHandler} className={props.className}>
+            <Form onSubmit={submitHandler}>
+                <p className="payment-info">
+                    Your appointment is $99 or your copay.
+                </p>
                 <CardElement onChange={onCardChange} className="card-element" />
                 <Input type="Submit" />
             </Form>
@@ -34,6 +34,10 @@ function Payment(props) {
 const styledPayment = styled(Payment)`
     width: 100%;
     height: 100%;
+
+    form {
+        padding: 8px;
+    }
 
     .card-element {
         margin: 8px 0 12px;
