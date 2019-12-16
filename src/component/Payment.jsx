@@ -18,17 +18,16 @@ function Payment(props) {
     }
 
     return (
-        <StripeProvider apiKey="pk_test_12345">
-            <Elements>
-            <>
-                <Form onSubmit={submitHandler} className={props.className}>
-                    <AppointmentListComponentHeader />
-                    <CardElement onChange={onCardChange} className="card-element" />
-                    <Input type="Submit" />
-                </Form>
-            </>
-        </Elements>
-      </StripeProvider>
+        <div>
+            <AppointmentListComponentHeader />
+            <p className="payment-info">
+                Your appointment is $99 or your copay.
+            </p>
+            <Form onSubmit={submitHandler} className={props.className}>
+                <CardElement onChange={onCardChange} className="card-element" />
+                <Input type="Submit" />
+            </Form>
+        </div>
     );
 }
 
@@ -37,7 +36,7 @@ const styledPayment = styled(Payment)`
     height: 100%;
 
     .card-element {
-        margin: 8px 0;
+        margin: 8px 0 12px;
     }
 `;
 
